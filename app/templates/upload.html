@@ -1,0 +1,56 @@
+{% extends 'dashbase.html' %}
+
+{% block content %}
+
+
+   
+
+    <div class="card shadow mt-md-5 pt-5 mx-md-5">
+        <div class="card-body">
+            <div class="container mt-md-5 pt-5 pb-5">
+               <div class="row">
+
+                <div class="col-md-4 mb-5">
+                    <div class="d-flex justify-content-center">
+                          <img class="rounded-circle" src="https://www.kindpng.com/picc/m/22-223941_transparent-avatar-png-male-avatar-icon-transparent-png.png" alt="Avatar" width="110px" height="110px">
+                    </div>
+                    <div class="text-center mt-3"><h3>{{user.first_name}} {{user.last_name}}</h3>  </div>
+                    <div class="text-center"><p class=""> {{user.email}} </p></div>
+                    <div class="text-center mt-3"> <button class="btn btn-primary"><i class="fa fa-upload"></i> Upload files</button></div>
+                    <div class="text-center mt-3"> <button class="btn btn-outline-primary"><i class="fa fa-sign-out"></i> Logout</button></div>
+                </div>
+                <div class="col-md-8">
+                    <div class="text-center mb-4">
+                        <h2>Upload a new file</h2>
+                    </div>
+        
+                    <form method="POST" action="{% url 'upload' %}" enctype="multipart/form-data">
+                        <input name="name" class="form-control form-control-lg mb-3" type="text" placeholder="File name" aria-label=".form-control-lg">
+                        <input name="desc" class="form-control form-control-lg mb-3" type="text" placeholder="File description" aria-label=".form-control-lg">
+                        
+                        
+                        <label for="formFile" class="form-label">Upload your file here</label>
+                        <input name="file" class="form-control mb-3" type="file" id="formFile">    
+                        {% csrf_token %}
+                        <div class="text-center">
+                            <button type="submit" class="mt-3 btn btn-primary">Upload</button>
+                        </div>
+                        
+        
+                    </form>
+        
+        
+        
+                </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+        
+
+    
+
+
+{% endblock %}

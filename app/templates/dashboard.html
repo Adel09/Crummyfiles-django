@@ -1,0 +1,86 @@
+{% extends 'dashbase.html' %}
+
+
+{% block content %}
+
+
+
+<div class="card shadow mt-md-5 pt-5 mx-md-5 pb-5">
+    <div class="card-body">
+      
+        
+        <div class="container pb-5">
+            <div class="row">
+                <div class="col-md-4 mb-5">
+                    <div class="d-flex justify-content-center">
+                          <img class="rounded-circle" src="https://www.kindpng.com/picc/m/22-223941_transparent-avatar-png-male-avatar-icon-transparent-png.png" alt="Avatar" width="110px" height="110px">
+                    </div>
+                    <div class="text-center mt-3"><h3>{{user.first_name}} {{user.last_name}}</h3>  </div>
+                    <div class="text-center"><p class=""> {{user.email}} </p></div>
+                    <form method="GET" action="{% url 'upload' %}">
+                        <div class="text-center mt-3"> <button type="submit" class="btn btn-primary"><i class="fa fa-upload"></i> Upload files</button></div>
+                    </form>
+                    
+                    
+                    <form method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <div class="text-center mt-3"> <button type="submit" class="btn btn-outline-primary"><i class="fa fa-sign-out"></i> Logout</button></div>
+                    </form>
+                    
+                </div>
+                <div class="col-md-8">
+                    <div class="text-center">
+                        <h2>My Files</h2>
+                    </div>
+        
+                    
+        
+                    <table class="table table-hover mt-4">
+                        <thead>
+                            <tr>
+                            <th scope="col">File Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Uploaded</th>
+                            <th scope="col">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {% for file in files %}
+                                <tr class="pt-4 pb-4">
+                                  <td>{{file.name}}</td>
+                                  <td>{{file.description}}</td>
+                                  <td>{{file.date}}</td>
+                                  <td>
+                                   <div class="d-flex">
+                                    <button class="btn" onclick="CopyMe('localhost:8000/file/{{file.id}}')"><i class="fa fa-share-alt"></i></button>
+                                    <form action="{% url 'delete' file.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn"><i class="fa fa-close"></i></button>
+                                    </form>
+                                    
+                                  </div> 
+                                </td>
+                                </tr>
+                                {% empty %}
+                                <div class="text-center"><h3>You do not have any files</h3></div>
+                        
+                                {% endfor %}
+                            </tbody>
+                    </table>
+        
+        
+                    
+        
+        
+        
+                </div>
+        
+            </div>
+        </div>
+
+
+    </div>
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="mt-5 pt-5 mb-5">
+
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+
+        <div class="col-md-6 mb-5 px-4">
+            <div class="mt-5"><h1 class="fs-1 fw-bold">Share your files beautifully<span class="text-primary">.</span></h1></div>
+            <div><p>Share your files and documents faster with our free, open source platform from Crum Labs!</p></div>
+
+            <div class="mt-4 mb-5 d-flex">
+                <button type="button" class="btn btn-outline-primary">View pricing</button>
+                <form method="GET" action="{% url 'signupuser' %}">
+                    <button type="submit" class="btn btn-primary ms-2">Signup Now!</button>
+                </form>
+                
+            </div>
+
+        </div>
+        <div class="col-md-6 d-flex align-content-center justify-content-center">
+            {% load static %}
+            <img class="mx-4" src="{% static 'und.png' %}" alt="Illustration" width="500px" height="400px">
+        </div>
+
+    </div>
+</div>
+
+</section>
+
+<section class="pt-5 pb-5" style="background-color: rgb(236, 239, 241); margin-top: 140px;">
+
+    <div class="container pt-4 pb-4">
+      <div class="row">
+        <div class="col-12 text-center">
+    
+          <div class="mt-4"><h2 class="fw-bold">File sharing made easy<span class="text-primary">.</span></h2></div>
+          <div class="px-md-5"><p class="mt-3 mx-md-5">For people with so much to share, CrummyFiles offers a seamless way to distribute files accross the internet.<br>
+            Gone are the days of attaching our files to multiple email addresses just to share them. </p></div>
+          <div class="text-center mt-5">
+            <form method="GET" action="{% url 'signupuser' %}">
+              <button type="submit" class="btn btn-outline-primary">Signup Now!</button>
+            </form>
+          </div>
+    
+        </div>
+      </div>
+    </div>
+    </section>
+
+
+{% endblock %}

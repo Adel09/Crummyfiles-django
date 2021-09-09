@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-xl navbar-light bg-white">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'home' %}">Crummy files</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBasic" aria-controls="navbarBasic" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse show" id="navbarBasic">
+            <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" tabindex="-1" >Pricing</a>
+              </li>
+            </ul>
+
+            {% if user.is_authenticated %}
+            <div class="d-flex">
+              <form method="GET" action="{% url 'dashboard' %}">
+                  <button type="submit" class="btn btn-outline-primary">Go to dashboard</button>
+              </form>
+              <form method="GET" action="{% url 'logout' %}">
+                <button type="submit" class="btn btn-primary ms-2">Logout</button>
+              </form>
+          </div>
+
+            {% else %}
+            <div class="d-flex">
+                <form method="GET" action="{% url 'signupuser' %}">
+                    <button type="submit" class="btn btn-outline-primary">Signup</button>
+                </form>
+                <form method="GET" action="{% url 'signinuser' %}">
+                  <button type="submit" class="btn btn-primary ms-2">Login</button>
+                </form>
+            </div>
+            {% endif %}
+
+          </div>
+        </div>
+      </nav>
+
+
+      
+    {% block content %}
+
+    {% endblock %}
+
+    <footer class="text-center text-white" style="background-color: #21081a;">
+  
+
+      <!-- Copyright -->
+      <div class="text-center p-2" >
+        © 2021 Copyright:
+        <a class="text-white text-decoration-none" href="https://crumlabs.com/">Crum Labs </a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+{% extends 'dashbase.html' %}
+
+
+
+
+{% block content %}
+
+
+<div class="container mt-5 pt-5 pb-5">
+    <div class="row">
+        <div class="col-12">
+
+            <div class="card pt-5 pb-5 shadow-sm">
+                <div class="card-body">
+                  
+                    <div class="d-flex justify-content-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Circle-icons-download.svg/1200px-Circle-icons-download.svg.png" alt="Icon" width="120px" height="120px">
+                    </div>
+                    <div class="text-center mt-3"><h2>{{file.name}}</h2></div>
+                    <div class="text-center">{{file.description}}</div>
+                    <div class="text-center">Uploaded: {{file.date}}</div>
+                    <div class="text-center">Uploaded by: {{file.owner.first_name}} {{file.owner.last_name}}</div>
+                    <div class="text-center mt-4"><a class="btn btn-primary" href="{{file.file.url}}" download><i class="fa fa-download"></i> Download file</a></div>
+
+                </div>
+              </div>
+              <div class="alert alert-primary" role="alert">
+                This file was uploaded and shared with <a href="{% url 'home' %}" class="alert-link">CrummyFiles</a>. Give it a click if you like.
+              </div>
+
+            
+
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

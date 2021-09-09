@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5 pt-5 mb-5">
+    <div class="row">
+        <div class="col-12 px-3">
+
+            <div class="text-center mt-3 mb-4"><h1>Create your <span class="text-primary">free</span> account</h1></div>
+            <form method="POST" action="{% url 'signupuser' %}">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                            <input name="fname" type="text" class="form-control" id="floatingInput" placeholder="First name">
+                            <label for="floatingInput">First name</label>
+                          </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                            <input name="lname" type="text" class="form-control" id="floatingInput" placeholder="Last Name">
+                            <label for="floatingInput">Last name</label>
+                          </div>
+                    </div>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input name="username" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Username</label>
+                  </div>
+
+                <div class="form-floating mb-3">
+                    <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input name="pass1" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                  </div>
+                  <div class="form-floating mb-5">
+                    <input name="pass2" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Confirm Password</label>
+                  </div>
+                  {% csrf_token %}
+
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Signup</button>
+                  </div>
+
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
