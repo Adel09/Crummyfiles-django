@@ -28,11 +28,11 @@ def signupuser(request):
                 login(request, user)
                 return redirect('dashboard')
             except IntegrityError:
-                context = {'title': 'Create your account| Sellime',
+                context = {'title': 'Create your account| Crummy Files',
                             'error' : 'User already registered'}
                 return render(request, 'signup.html', context)
         else:
-            context = {'title': 'Create your account| Sellime',
+            context = {'title': 'Create your account| Crummy files',
                             'error' : 'Passwords do not match'}
             return render(request, 'signup.html', context)
 

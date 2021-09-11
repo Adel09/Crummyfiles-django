@@ -13,9 +13,9 @@
             <div><p>Share your files and documents faster with our free, open source platform from Crum Labs!</p></div>
 
             <div class="mt-4 mb-5 d-flex">
-                <button type="button" class="btn btn-outline-primary">View pricing</button>
+                <!-- <button type="button" class="btn btn-outline-primary">View pricing</button> -->
                 <form method="GET" action="{% url 'signupuser' %}">
-                    <button type="submit" class="btn btn-primary ms-2">Signup Now!</button>
+                    <button type="submit" class="btn btn-primary">Sign Up Now!</button>
                 </form>
                 
             </div>
@@ -42,7 +42,7 @@
             Gone are the days of attaching our files to multiple email addresses just to share them. </p></div>
           <div class="text-center mt-5">
             <form method="GET" action="{% url 'signupuser' %}">
-              <button type="submit" class="btn btn-outline-primary">Signup Now!</button>
+              <button type="submit" class="btn btn-outline-primary">Sign Up Now!</button>
             </form>
           </div>
     
@@ -50,6 +50,8 @@
       </div>
     </div>
     </section>
+
+    
 
 
 {% endblock %}
